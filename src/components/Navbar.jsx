@@ -3,7 +3,6 @@ import { StyledNav } from './Navbar.styles';
 import Menu from './Menu';
 import Icons from './Icons';
 import Menuicon from './Menuicon';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -11,8 +10,16 @@ const Navbar = () => {
     setShowMenu(!showMenu);
   };
 
+  const inlineStyle = (a, b) => {
+    if (showMenu) {
+      return { height: a };
+    } else {
+      return { height: b };
+    }
+  };
+
   return (
-    <StyledNav style={showMenu ? { height: '250px' } : { height: '5rem' }}>
+    <StyledNav style={inlineStyle('250px', '5rem')}>
       <section className='wrapper'>
         {/* logo */}
         <h2>logo</h2>
