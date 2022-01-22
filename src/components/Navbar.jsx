@@ -22,6 +22,9 @@ const Navbar = ({ screenWidth }) => {
   }
 
   useEffect(() => {
+    if (screenWidth > 768) {
+      setShowMenu(false);
+    }
     change();
   }, [screenWidth, showMenu]);
 

@@ -59,10 +59,12 @@ export const StyledNav = styled.nav`
       display: none;
     }
     .menu-btn {
+      display: flex;
       background-color: transparent;
       border: none;
       transition: 0.4s;
-      font-size: 2rem;
+      font-size: 1.7rem;
+      padding: 0;
       cursor: pointer;
       :hover {
         transform: rotate(90deg);
