@@ -1,16 +1,21 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 const Menu = () => {
   return (
     <ul className='menu'>
       <a href='#'>
-        <li>item 1</li>
+        <li>Home</li>
       </a>
       <a href='#'>
-        <li>item 1</li>
+        <li>About</li>
       </a>
       <a href='#'>
-        <li>item 1</li>
+        <li>Projects</li>
+      </a>
+      <a href='#'>
+        <li>Contact</li>
+      </a>
+      <a href='#'>
+        <li>Profile</li>
       </a>
     </ul>
   );

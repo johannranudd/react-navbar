@@ -1,33 +1,40 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { StyledNav } from './Navbar.styles';
 import Menu from './Menu';
 import Icons from './Icons';
 import Menuicon from './Menuicon';
+import { IoLogoGitlab } from 'react-icons/io5';
 
-const Navbar = () => {
+const Navbar = ({ screenWidth }) => {
   const [showMenu, setShowMenu] = useState(false);
+  const reference = useRef(null);
+
   const handleClick = () => {
     setShowMenu(!showMenu);
+    change();
   };
-
-  const inlineStyle = (a, b) => {
-    if (showMenu) {
-      return { height: a };
+  function change() {
+    if (showMenu && screenWidth < 768) {
+      reference.current.style.height = '250px';
     } else {
-      return { height: b };
+      reference.current.style.height = '80px';
     }
-  };
+  }
+
+  useEffect(() => {
+    change();
+  }, [screenWidth, showMenu]);
 
   return (
-    <StyledNav style={inlineStyle('250px', '5rem')}>
+    <StyledNav ref={reference}>
       <section className='wrapper'>
-        {/* logo */}
-        <h2>logo</h2>
-        {/* menu */}
+        <div className='logo'>
+          <a href='#'>
+            <IoLogoGitlab className='logo-icon' />
+          </a>
+        </div>
         <Menu />
-        {/* icons */}
         <Icons />
-        {/* menu-burger */}
         <Menuicon handleClick={handleClick} />
       </section>
     </StyledNav>
@@ -35,17 +42,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// const StyledMotionNav = motion(StyledNav);
-
-// const headerVariant = {
-//   initial: {
-//     height: 80,
-//   },
-//   animate: {
-//     height: 200,
-//   },
-//   exit: {
-//     height: 80,
-//   },
-// };
