@@ -15,9 +15,9 @@ const Navbar = ({ screenWidth }) => {
   };
   function change() {
     if (showMenu && screenWidth < 768) {
-      reference.current.style.height = '250px';
+      reference.current.style.height = '16.8rem';
     } else {
-      reference.current.style.height = '80px';
+      reference.current.style.height = '5rem';
     }
   }
 

@@ -6,7 +6,7 @@ export const StyledNav = styled.nav`
   background: #def;
   height: 5rem;
   overflow: hidden;
-  transition: 0.4s;
+  transition: 0.5s;
   .wrapper {
     position: absolute;
     top: 1rem;
@@ -17,10 +17,14 @@ export const StyledNav = styled.nav`
     padding: 0.6rem 2rem;
     .logo {
       a {
+        transition: 0.4s;
         display: flex;
         align-items: center;
         color: ${colors.black};
         padding: 0;
+        :hover {
+          color: ${colors.white};
+        }
       }
       .logo-icon {
         font-size: 2rem;
@@ -29,10 +33,25 @@ export const StyledNav = styled.nav`
     .menu {
       position: absolute;
       top: 5rem;
-      a {
-        text-decoration: none;
-        color: ${colors.black};
-        padding: 0.5rem;
+      left: 0;
+      width: 100%;
+      li {
+        transition: 0.5s;
+        a {
+          display: inline-block;
+          text-decoration: none;
+          color: ${colors.black};
+          width: 100%;
+          padding: 0.5rem 1rem;
+          transition: 0.5s;
+          :hover {
+            color: ${colors.blue};
+          }
+        }
+        :hover {
+          background-color: ${colors.white};
+          padding-left: 1rem;
+        }
       }
     }
 
@@ -42,10 +61,9 @@ export const StyledNav = styled.nav`
     .menu-btn {
       background-color: transparent;
       border: none;
-      transition: 0.5s;
-      svg {
-        font-size: 2rem;
-      }
+      transition: 0.4s;
+      font-size: 2rem;
+      cursor: pointer;
       :hover {
         transform: rotate(90deg);
       }
@@ -61,6 +79,14 @@ export const StyledNav = styled.nav`
         top: 0;
         display: flex;
         justify-content: space-between;
+        li {
+          a {
+          }
+          :hover {
+            background-color: transparent;
+            padding-left: 0;
+          }
+        }
       }
       .icons-container {
         display: flex;
